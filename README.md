@@ -1,16 +1,77 @@
-# React + Vite
+# LQA Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A gamified Localization Quality Assurance training tool for EN→HR game localization. Players review translation segments under time pressure, identify errors, classify them by MQM category and severity, and compete on a shared leaderboard.
 
-Currently, two official plugins are available:
+🔗 **Live demo:** [lqa-game-b19l.vercel.app](https://lqa-game-b19l.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What it does
 
-## React Compiler
+- **10 timed rounds** per session: each round presents a source (EN) and target (HR) game UI segment
+- **Error detection**: decide whether the translation contains an error or passes quality checks
+- **Error classification**: if an error is found, classify it by MQM category (Accuracy, Compliance, Language, Style, Terminology) and severity (Minor, Major, Critical)
+- **Scoring system**: points awarded based on correct identification, accurate classification, and speed (time bonus)
+- **Skill ranking**: final scores translate to titles (LQA Expert, Senior Reviewer, Junior Tester)
+- **Persistent leaderboard**: scores are saved and shared across sessions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Why this exists
 
-## Expanding the ESLint configuration
+LQA reviewers are typically trained on the job or through static documentation. This tool turns MQM error detection into an interactive exercise, making it useful for onboarding new linguists, self-assessment, or as a training module within localization teams.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+All 20 segments are real-world game localization examples (EN→HR) covering common error types found in game UI strings: number errors, missing diacritics, punctuation issues, glossary violations, register mismatches, omissions, and more.
+
+## Error Types Covered
+
+| Category    | Example errors in the game                                    |
+|------------|---------------------------------------------------------------|
+| Accuracy    | Number changes (500→5000), omissions, additions               |
+| Compliance  | Non-standard terminology vs. approved glossary terms          |
+| Language    | Missing diacritics (č, ć, š, ž), double spaces, punctuation  |
+| Style       | Formal/informal register mismatch                             |
+| Terminology | Inconsistent term usage                                       |
+
+## Scoring
+
+| Outcome                        | Points                    |
+|-------------------------------|---------------------------|
+| Correct PASS (no error)        | 80 + time bonus           |
+| Perfect match (category + severity) | Full severity points × 4 + time bonus |
+| Correct category, wrong severity | Severity points × 2      |
+| Wrong category                  | Partial credit             |
+| Missed error or false positive  | 0                          |
+
+Time bonus = remaining seconds × 0.5
+
+## Tech Stack
+
+- React 18+ with Hooks
+- Vite
+- Persistent storage API for leaderboard
+- Deployed on Vercel
+
+## Getting Started
+
+```bash
+git clone https://github.com/zirafinjezik/lqa-game.git
+cd lqa-game
+npm install
+npm run dev
+```
+
+## Potential Extensions
+
+- Additional language pairs (EN→DE, EN→ES)
+- Expanded segment pool with difficulty tiers
+- Team/organization leaderboards
+- Analytics dashboard showing error type performance over time
+- Integration with real LQA workflows for reviewer calibration
+
+## Author
+
+**Natalija Marić** -- Localization specialist and LQA reviewer with 13+ years of experience in game localization, technical translation, and quality assurance.
+
+- 🦒 [Žirafin jezik j.d.o.o.](https://zirafinjezik.com)
+- 💼 [LinkedIn](www.linkedin.com/in/natalija-maric-zirafinjezik)
+
+## License
+
+MIT
