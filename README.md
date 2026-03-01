@@ -56,6 +56,8 @@ cd lqa-game
 npm install
 npm run dev
 ```
+## Screenshot
+<img width="1405" height="751" alt="Snimka zaslona 2026-03-01 172017" src="https://github.com/user-attachments/assets/61382e56-c6f4-4062-859e-cbbd2e164658" />
 
 ## Potential Extensions
 
