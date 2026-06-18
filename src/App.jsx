@@ -8,7 +8,6 @@ const SEGMENTS = [
       { target: "Spremite svoj napredak prije izlaska.", hasError: true, category: "Accuracy", subcategory: "Omission", severity: "Major", explanation: "'Iz igre' (from the game) was omitted." },
       { target: "Sačuvajte svoj napredak prije izlaska iz igre.", hasError: true, category: "Compliance", subcategory: "Glossary not used", severity: "Minor", explanation: "'Sačuvajte' is non-standard -- 'Spremite' is the approved term." },
       { target: "Spremite svoj napredak prije izlaska iz igre.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
-      { target: "Spremite  svoj napredak prije izlaska iz igre.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space after 'Spremite'." },
     ]
   },
   {
@@ -30,12 +29,11 @@ const SEGMENTS = [
     ]
   },
   {
-    id: 4, source: "Warning: Low battery. Please charge your device.",
+    id: 4, source: "Warning: Low battery. Charge your device.",
     correct: "Upozorenje: Baterija je slaba. Napunite svoj uređaj.",
     variants: [
-      { target: "Upozorenje: Baterija je slaba. Moilmo napunite svoj uređaj.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "'Moilmo' is a typo -- should be 'Molimo'." },
+      { target: "Upozorenje: Baterija je slaba. Napunite vaš uređaj.", hasError: true, category: "Language", subcategory: "Grammar/Syntax", severity: "Minor", explanation: "'Vaš uređaj' should be 'svoj uređaj' -- the reflexive possessive is required when the possessor is the subject of the imperative." },
       { target: "Upozorenje Baterija je slaba. Napunite svoj uređaj.", hasError: true, category: "Language", subcategory: "Punctuation", severity: "Minor", explanation: "Missing colon after 'Upozorenje'." },
-      { target: "Upozorenje: Baterija je slaba. Napunite  svoj uređaj.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space before 'svoj'." },
       { target: "Upozorenje: Baterija je slaba. Napunite svoj uređaj.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Clean and accurate." },
     ]
   },
@@ -54,7 +52,6 @@ const SEGMENTS = [
     variants: [
       { target: "Završi misiju da zaradiš 500 zlatnika.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
       { target: "Završi misiju da zaradiš 5000 zlatnika.", hasError: true, category: "Accuracy", subcategory: "Numbers", severity: "Critical", explanation: "500 was changed to 5000 -- a critical number error." },
-      { target: "Završi  misiju da zaradiš 500 zlatnika.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space after 'Završi'." },
     ]
   },
   {
@@ -72,7 +69,6 @@ const SEGMENTS = [
     variants: [
       { target: "Mač nanosi 120 štete po udarcu.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
       { target: "Mač nanosi 1200 štete po udarcu.", hasError: true, category: "Accuracy", subcategory: "Numbers", severity: "Critical", explanation: "120 was changed to 1200 -- a critical number error." },
-      { target: "Mač  nanosi 120 štete po udarcu.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space after 'Mač'." },
     ]
   },
   {
@@ -89,7 +85,6 @@ const SEGMENTS = [
     correct: "Pritisnite START za početak avanture.",
     variants: [
       { target: "Pritisnite START za početak avanture.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
-      { target: "Pritisnite START za  početak avanture.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space before 'početak'." },
       { target: "Pritisnite START za početak avanture", hasError: true, category: "Language", subcategory: "Punctuation", severity: "Minor", explanation: "Missing full stop at the end." },
     ]
   },
@@ -126,7 +121,6 @@ const SEGMENTS = [
     variants: [
       { target: "Nova sezona počinje 25. prosinca.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Date correctly formatted for Croatian." },
       { target: "Nova sezona počinje 25 prosinca.", hasError: true, category: "Language", subcategory: "Punctuation", severity: "Minor", explanation: "Missing full stop after '25' -- Croatian date format requires '25.'." },
-      { target: "Nova sezona  počinje 25. prosinca.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space before 'počinje'." },
     ]
   },
   {
@@ -144,7 +138,6 @@ const SEGMENTS = [
     variants: [
       { target: "Vaše vještine su prenosiv kroz sve načine igre.", hasError: true, category: "Language", subcategory: "Grammar/Syntax", severity: "Major", explanation: "'Prenosiv' does not agree with 'vještine' -- should be 'prenosive'." },
       { target: "Vaše su vještine prenosive kroz sve načine igre.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Correct agreement and natural word order." },
-      { target: "Vaše su vještine prenosive kroz sve  načine igre.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space before 'načine'." },
     ]
   },
   {
@@ -171,7 +164,6 @@ const SEGMENTS = [
     variants: [
       { target: "Dodirnite zaslon kako biste prekočili prepreke.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "'Prekočili' is misspelled -- should be 'preskočili'." },
       { target: "Dodirnite zaslon kako biste preskočili prepreke.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Natural and accurate." },
-      { target: "Dodirnite  zaslon kako biste preskočili prepreke.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space after 'Dodirnite'." },
     ]
   },
   {
@@ -180,7 +172,6 @@ const SEGMENTS = [
     variants: [
       { target: "Imate nove poruke od svojih suigrači.", hasError: true, category: "Language", subcategory: "Grammar/Syntax", severity: "Minor", explanation: "'Suigrači' should be 'suigrača' (genitive plural after 'od')." },
       { target: "Imate nove poruke od svojih suigrača.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Clean and accurate." },
-      { target: "Imate nove  poruke od svojih suigrača.", hasError: true, category: "Language", subcategory: "Spelling/Typos", severity: "Minor", explanation: "Double space before 'poruke'." },
     ]
   },
 ];
@@ -357,8 +348,12 @@ function GameScreen({ rounds, onFinish }) {
 
   const handleSubmit = (timedOut = false) => {
     clearInterval(timerRef.current);
-    const ans = timedOut ? { verdict: "pass", category: "", severity: "" } : answer;
-    const { points, breakdown } = calcRoundScore(seg, ans, timeLeft);
+    if (timedOut) {
+      setResult({ points: 0, breakdown: "⏱ Time's up -- no answer submitted." });
+      setScores(prev => [...prev, 0]);
+      return;
+    }
+    const { points, breakdown } = calcRoundScore(seg, answer, timeLeft);
     setResult({ points, breakdown });
     setScores(prev => [...prev, points]);
   };
@@ -494,6 +489,7 @@ function ResultScreen({ score, onRestart, onSave }) {
             <input
               style={{ background: C.bg, border: `1px solid ${C.border}`, borderRadius: 8, color: C.text, padding: "10px 12px", fontSize: 13, flex: 1, outline: "none" }}
               placeholder="Enter your name..."
+              maxLength={24}
               value={name}
               onChange={e => setName(e.target.value)}
               onKeyDown={e => e.key === "Enter" && handleSave()}
@@ -518,31 +514,29 @@ export default function LQAGame() {
   const [screen, setScreen] = useState("home");
   const [rounds, setRounds] = useState([]);
   const [finalScore, setFinalScore] = useState(0);
-  const [leaderboard, setLeaderboard] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await window.storage.get("lqa_leaderboard", true);
-        if (res?.value) setLeaderboard(JSON.parse(res.value));
-      } catch {}
-      setLoading(false);
-    };
-    load();
-  }, []);
+  const [leaderboard, setLeaderboard] = useState(() => {
+    try {
+      const raw = localStorage.getItem("lqa_leaderboard");
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      console.warn("Could not read leaderboard:", e);
+      return [];
+    }
+  });
 
   const startGame = () => { setRounds(pickRounds()); setScreen("game"); };
 
   const handleFinish = score => { setFinalScore(score); setScreen("result"); };
 
-  const handleSave = async (name, score) => {
+  const handleSave = (name, score) => {
     const updated = [...leaderboard, { name, score }].sort((a, b) => b.score - a.score).slice(0, 20);
     setLeaderboard(updated);
-    try { await window.storage.set("lqa_leaderboard", JSON.stringify(updated), true); } catch {}
+    try {
+      localStorage.setItem("lqa_leaderboard", JSON.stringify(updated));
+    } catch (e) {
+      console.warn("Could not save leaderboard:", e);
+    }
   };
-
-  if (loading) return <div style={{ ...css.app, display: "flex", alignItems: "center", justifyContent: "center" }}><div style={{ color: C.textMute }}>Loading...</div></div>;
 
   return (
     <div style={css.app}>

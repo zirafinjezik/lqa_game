@@ -1,10 +1,10 @@
 # LQA Challenge
 
-A gamified Localization Quality Assurance training tool for EN→HR game localization. Players review translation segments under time pressure, identify errors, classify them by MQM category and severity, and compete on a shared leaderboard.
+A gamified Localization Quality Assurance training tool for EN→HR game localization. Players review translation segments under time pressure, identify errors, classify them by MQM category and severity, and track high scores on a local leaderboard.
 
 **Live demo:** [lqa-game.vercel.app](https://lqa-game.vercel.app)
 
-**Repository:** [github.com/zirafinjezik/lqa-game](https://github.com/zirafinjezik/lqa-game)
+**Repository:** [github.com/zirafinjezik/lqa_game](https://github.com/zirafinjezik/lqa_game)
 
 ---
 
@@ -21,7 +21,7 @@ A gamified Localization Quality Assurance training tool for EN→HR game localiz
 - **Error classification**: if an error is found, classify it by MQM category (Accuracy, Compliance, Language, Style, Terminology) and severity (Minor, Major, Critical)
 - **Scoring system**: points awarded based on correct identification, accurate classification, and speed (time bonus)
 - **Skill ranking**: final scores translate to titles (LQA Expert, Senior Reviewer, Junior Tester)
-- **Persistent leaderboard**: scores are saved and shared across sessions
+- **Persistent leaderboard**: scores are saved in your browser and persist across sessions
 
 ---
 
@@ -77,9 +77,9 @@ Time bonus = remaining seconds × 0.5
 
 ## Tech Stack
 
-- React 18+ with Hooks
+- React 19 with Hooks
 - Vite
-- Persistent storage API for leaderboard
+- localStorage-backed leaderboard (per browser)
 - Deployed on Vercel
 
 ---
@@ -87,8 +87,8 @@ Time bonus = remaining seconds × 0.5
 ## Getting Started
 
 ```bash
-git clone https://github.com/zirafinjezik/lqa-game.git
-cd lqa-game
+git clone https://github.com/zirafinjezik/lqa_game.git
+cd lqa_game
 npm install
 npm run dev
 ```
