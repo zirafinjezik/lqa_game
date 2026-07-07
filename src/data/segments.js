@@ -4,7 +4,6 @@ export const SEGMENTS = [
     correct: "Spremite svoj napredak prije izlaska iz igre.",
     variants: [
       { target: "Spremite svoj napredak prije izlaska.", hasError: true, category: "Accuracy", subcategory: "Omission", severity: "Major", explanation: "'Iz igre' (from the game) was omitted." },
-      { target: "Sačuvajte svoj napredak prije izlaska iz igre.", hasError: true, category: "Compliance", subcategory: "Glossary not used", severity: "Minor", explanation: "'Sačuvajte' is non-standard -- 'Spremite' is the approved term." },
       { target: "Spremite svoj napredak prije izlaska iz igre.", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
     ]
   },
@@ -41,7 +40,6 @@ export const SEGMENTS = [
     variants: [
       { target: "Jeste li sigurni da želite izbrisati ovog lika?", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Accurate and natural." },
       { target: "Jeste li sigurni da želite izbrisati ovog lika", hasError: true, category: "Language", subcategory: "Punctuation", severity: "Minor", explanation: "Missing question mark at the end." },
-      { target: "Jeste li sigurni da želite obrisati ovog lika?", hasError: true, category: "Compliance", subcategory: "Glossary not used", severity: "Minor", explanation: "'Obrisati' is non-standard here -- 'izbrisati' is the approved term." },
     ]
   },
   {
@@ -56,7 +54,6 @@ export const SEGMENTS = [
     id: 7, source: "Hey! You totally crushed that level!",
     correct: "Hej! Izvrsno si savladao tu razinu!",
     variants: [
-      { target: "Hej! Izvrsno ste savladali tu razinu!", hasError: true, category: "Style", subcategory: "Wrong register", severity: "Major", explanation: "Casual 'Hey!' source needs informal 'si' form -- 'ste' is too formal." },
       { target: "Hej Izvrsno si savladao tu razinu!", hasError: true, category: "Language", subcategory: "Punctuation", severity: "Minor", explanation: "Missing exclamation mark after 'Hej'." },
       { target: "Hej! Izvrsno si savladao tu razinu!", hasError: false, category: null, subcategory: null, severity: null, explanation: "No errors. Casual tone matches source." },
     ]
@@ -175,5 +172,5 @@ export const SEGMENTS = [
 ];
 
 
-export const CATEGORIES = ["Accuracy", "Compliance", "Language", "Style", "Terminology"];
+export const CATEGORIES = ["Accuracy", "Language"];
 export const SEVERITIES = ["Minor", "Major", "Critical"];

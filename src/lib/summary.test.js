@@ -18,7 +18,7 @@ describe("summarize", () => {
   it("counts clean rounds: passed vs over-flagged", () => {
     const history = [
       { seg: clean, answer: { verdict: "pass" }, points: 90, timedOut: false },
-      { seg: clean, answer: { verdict: "error", category: "Style", severity: "Minor" }, points: 0, timedOut: false },
+      { seg: clean, answer: { verdict: "error", category: "Accuracy", severity: "Minor" }, points: 0, timedOut: false },
     ];
     const { clean: c } = summarize(history);
     expect(c).toEqual({ total: 2, passed: 1, overFlagged: 1 });

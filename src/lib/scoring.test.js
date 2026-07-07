@@ -37,7 +37,7 @@ describe("calcRoundScore", () => {
   });
 
   it("wrong category = base*0.5 floored, regardless of severity", () => {
-    const { points } = calcRoundScore(errorSeg, { verdict: "error", category: "Style", severity: "Minor" }, 30);
+    const { points } = calcRoundScore(errorSeg, { verdict: "error", category: "Accuracy", severity: "Minor" }, 30);
     expect(points).toBe(Math.floor(SEV_POINTS.Minor * 0.5));
   });
 
