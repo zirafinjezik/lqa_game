@@ -18,7 +18,7 @@ A gamified Localization Quality Assurance training tool for EN→HR game localiz
 
 - **10 timed rounds** per session: each round presents a source (EN) and target (HR) game UI segment
 - **Error detection**: decide whether the translation contains an error or passes quality checks
-- **Error classification**: if an error is found, classify it by MQM category (Accuracy, Compliance, Language, Style, Terminology) and severity (Minor, Major, Critical)
+- **Error classification**: if an error is found, classify it by MQM category (Accuracy, Language) and severity (Minor, Major, Critical)
 - **Scoring system**: points awarded based on correct identification, accurate classification, and speed (time bonus)
 - **Skill ranking**: final scores translate to titles (LQA Expert, Senior Reviewer, Junior Tester)
 - **Persistent leaderboard**: scores are saved in your browser and persist across sessions
@@ -54,10 +54,7 @@ All 20 segments are real-world game localization examples (EN→HR) covering com
 | Category | Example errors in the game |
 |---|---|
 | Accuracy | Number changes (500→5000), omissions, additions |
-| Compliance | Non-standard terminology vs. approved glossary terms |
 | Language | Missing diacritics (č, ć, š, ž), double spaces, punctuation |
-| Style | Formal/informal register mismatch |
-| Terminology | Inconsistent term usage |
 
 ---
 
