@@ -140,9 +140,6 @@ export default function GameScreen({ rounds, onFinish }) {
             onClick={handleSubmit}
             disabled={!answer.verdict || (answer.verdict === "error" && (!answer.category || !answer.severity))}
           >Submit</button>
-          <div style={{ marginTop: 10, fontSize: 11, color: C.textMute }}>
-            Keys: E error · P pass · A/L category · 1-3 severity · Enter submit
-          </div>
         </div>
       )}
 
@@ -181,9 +178,17 @@ export default function GameScreen({ rounds, onFinish }) {
           <button style={css.btn} onClick={handleNext}>
             {round + 1 >= total ? "See Final Score" : "Next Round →"}
           </button>
-          <span style={{ marginLeft: 12, fontSize: 11, color: C.textMute }}>Enter</span>
+
         </div>
       )}
+      <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, background: C.surface, borderTop: `1px solid ${C.border}`, padding: "8px 16px", display: "flex", gap: 18, justifyContent: "center", flexWrap: "wrap", fontSize: 12, color: C.textMute, zIndex: 2 }}>
+        {[["E", "Error"], ["P", "Pass"], ["A", "Accuracy"], ["L", "Language"], ["1", "Minor"], ["2", "Major"], ["3", "Critical"], ["Enter", result ? "Next" : "Submit"]].map(([k, label]) => (
+          <span key={k} style={{ display: "flex", gap: 6, alignItems: "center" }}>
+            <kbd style={{ background: C.bg, border: `1px solid ${C.border}`, borderRadius: 4, padding: "1px 6px", fontFamily: "monospace", fontSize: 11, color: C.textMid, fontWeight: 700 }}>{k}</kbd>
+            {label}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
