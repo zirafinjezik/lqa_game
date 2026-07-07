@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { C, css } from "../theme.js";
 import { CATEGORIES, SEVERITIES } from "../data/segments.js";
 import { ROUND_TIME, calcRoundScore } from "../lib/scoring.js";
+import { diffWords } from "../lib/diff.js";
 
 export default function GameScreen({ rounds, onFinish }) {
   const [round, setRound] = useState(0);
@@ -47,6 +48,35 @@ export default function GameScreen({ rounds, onFinish }) {
       setResult(null);
     }
   };
+
+  useEffect(() => {
+    const onKey = e => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const tag = e.target.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      const k = e.key.toLowerCase();
+
+      if (result) {
+        if (e.key === "Enter") { e.preventDefault(); handleNext(); }
+        return;
+      }
+      if (k === "e") setAnswer(a => ({ ...a, verdict: "error" }));
+      else if (k === "p") setAnswer(a => ({ ...a, verdict: "pass" }));
+      else if (answer.verdict === "error") {
+        const cat = CATEGORIES.find(c => c[0].toLowerCase() === k);
+        if (cat) setAnswer(a => ({ ...a, category: cat }));
+        const sev = SEVERITIES[parseInt(k, 10) - 1];
+        if (sev) setAnswer(a => ({ ...a, severity: sev }));
+      }
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const valid = answer.verdict === "pass" || (answer.verdict === "error" && answer.category && answer.severity);
+        if (valid) handleSubmit();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
 
   const totalSoFar = history.reduce((a, h) => a + h.points, 0);
   const timerPct = (timeLeft / ROUND_TIME) * 100;
@@ -110,6 +140,9 @@ export default function GameScreen({ rounds, onFinish }) {
             onClick={handleSubmit}
             disabled={!answer.verdict || (answer.verdict === "error" && (!answer.category || !answer.severity))}
           >Submit</button>
+          <div style={{ marginTop: 10, fontSize: 11, color: C.textMute }}>
+            Keys: E error · P pass · A/L category · 1-3 severity · Enter submit
+          </div>
         </div>
       )}
 
@@ -130,12 +163,25 @@ export default function GameScreen({ rounds, onFinish }) {
             )}
             {!seg.hasError && <div style={{ fontSize: 13, color: C.pass, fontWeight: 700 }}>No error -- PASS ✓</div>}
           </div>
+          {seg.hasError && (() => {
+            const d = diffWords(seg.target, seg.correct);
+            const render = (tokens, color, bg) => tokens.map((t, i) => (
+              <span key={i} style={t.changed ? { color, background: bg, borderRadius: 4, padding: "0 3px", fontWeight: 700 } : undefined}>{t.text} </span>
+            ));
+            return (
+              <div style={{ fontSize: 14, background: "rgba(255,255,255,0.6)", borderRadius: 8, padding: "10px 14px", marginBottom: 10, lineHeight: 1.8 }}>
+                <div><span style={{ ...css.label, display: "inline", marginRight: 8 }}>Shown</span>{render(d.target, C.error, C.errorBg)}</div>
+                <div><span style={{ ...css.label, display: "inline", marginRight: 8 }}>Reference</span>{render(d.reference, C.pass, C.passBg)}</div>
+              </div>
+            );
+          })()}
           <div style={{ fontSize: 13, color: C.textMid, background: "rgba(255,255,255,0.6)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
             💡 {seg.explanation}
           </div>
           <button style={css.btn} onClick={handleNext}>
             {round + 1 >= total ? "See Final Score" : "Next Round →"}
           </button>
+          <span style={{ marginLeft: 12, fontSize: 11, color: C.textMute }}>Enter</span>
         </div>
       )}
     </div>
