@@ -2,6 +2,7 @@ import { useState } from "react";
 import { C, css } from "../theme.js";
 import { summarize } from "../lib/summary.js";
 import Leaderboard from "./Leaderboard.jsx";
+import { shareText } from "../lib/share.js";
 
 function Bar({ value, max, color }) {
   const pct = max > 0 ? (value / max) * 100 : 0;
@@ -60,6 +61,7 @@ export default function ResultScreen({ score, history = [], leaderboard = [], on
   const [name, setName] = useState("");
   const [saved, setSaved] = useState(false);
   const [showBoard, setShowBoard] = useState(false);
+  const [shared, setShared] = useState(false);
 
   const handleSave = () => {
     if (!name.trim()) return;
@@ -71,6 +73,21 @@ export default function ResultScreen({ score, history = [], leaderboard = [], on
     : score >= 500 ? { label: "Senior Reviewer", color: C.accent, icon: "⭐" }
     : score >= 300 ? { label: "Junior Tester", color: C.warn, icon: "🎯" }
     : { label: "Keep Practicing", color: C.textMute, icon: "📚" };
+
+  const handleShare = async () => {
+    const text = shareText(score, grade.label, history);
+    try {
+      if (navigator.share) {
+        await navigator.share({ text });
+      } else {
+        await navigator.clipboard.writeText(text);
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
+      }
+    } catch (e) {
+      if (e.name !== "AbortError") console.warn("Share failed:", e);
+    }
+  };
 
   return (
     <div style={{ maxWidth: 560, margin: "0 auto", textAlign: "center", paddingTop: 40 }}>
@@ -104,6 +121,7 @@ export default function ResultScreen({ score, history = [], leaderboard = [], on
 
       <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 16 }}>
         <button style={css.btn} onClick={onRestart}>Play Again</button>
+        <button style={css.btnAccent} onClick={handleShare}>{shared ? "Copied!" : "Share Result"}</button>
       </div>
 
       <div style={{ marginTop: 12 }}>
