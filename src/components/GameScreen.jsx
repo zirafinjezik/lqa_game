@@ -8,7 +8,7 @@ export default function GameScreen({ rounds, onFinish }) {
   const [timeLeft, setTimeLeft] = useState(ROUND_TIME);
   const [answer, setAnswer] = useState({ verdict: null, category: "", severity: "" });
   const [result, setResult] = useState(null);
-  const [scores, setScores] = useState([]);
+  const [history, setHistory] = useState([]);
   const timerRef = useRef(null);
 
   const seg = rounds[round];
@@ -16,8 +16,8 @@ export default function GameScreen({ rounds, onFinish }) {
 
   const handleTimeout = useCallback(() => {
     setResult({ points: 0, breakdown: "⏱ Time's up -- no answer submitted." });
-    setScores(prev => [...prev, 0]);
-  }, []);
+    setHistory(prev => [...prev, { seg, answer: { verdict: null }, points: 0, timedOut: true }]);
+  }, [seg]);
 
   useEffect(() => {
     if (result) return;
@@ -34,12 +34,12 @@ export default function GameScreen({ rounds, onFinish }) {
     clearInterval(timerRef.current);
     const { points, breakdown } = calcRoundScore(seg, answer, timeLeft);
     setResult({ points, breakdown });
-    setScores(prev => [...prev, points]);
+    setHistory(prev => [...prev, { seg, answer, points, timedOut: false }]);
   };
 
   const handleNext = () => {
     if (round + 1 >= total) {
-      onFinish(scores.reduce((a, b) => a + b, 0) + (result?.points || 0));
+      onFinish({ score: history.reduce((a, h) => a + h.points, 0), history });
     } else {
       setRound(r => r + 1);
       setTimeLeft(ROUND_TIME);
@@ -48,7 +48,7 @@ export default function GameScreen({ rounds, onFinish }) {
     }
   };
 
-  const totalSoFar = scores.reduce((a, b) => a + b, 0);
+  const totalSoFar = history.reduce((a, h) => a + h.points, 0);
   const timerPct = (timeLeft / ROUND_TIME) * 100;
   const timerColor = timeLeft > 15 ? C.accent : timeLeft > 7 ? C.warn : C.error;
 
