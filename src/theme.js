@@ -19,7 +19,7 @@ export const C = {
 };
 
 export const css = {
-  app: { minHeight: "100vh", width: "100%", boxSizing: "border-box", background: C.bg, color: C.text, fontFamily: "'Helvetica Neue', Arial, sans-serif", padding: "24px 32px" },
+  app: { minHeight: "100vh", width: "100%", boxSizing: "border-box", background: C.bg, color: C.text, fontFamily: "'Helvetica Neue', Arial, sans-serif", padding: "24px 32px 64px" },
   card: { background: C.surface, border: `1px solid ${C.border}`, borderRadius: 14, padding: 20, marginBottom: 16, width: "100%", boxSizing: "border-box", boxShadow: "0 2px 12px rgba(194,24,91,0.06)" },
   btn: { background: `linear-gradient(135deg, ${C.primary}, ${C.primaryLight})`, color: "#fff", border: "none", borderRadius: 8, padding: "10px 24px", fontWeight: 800, fontSize: 14, cursor: "pointer", letterSpacing: 0.3 },
   btnAccent: { background: `linear-gradient(135deg, ${C.accent}, ${C.accentLight})`, color: "#fff", border: "none", borderRadius: 8, padding: "10px 24px", fontWeight: 800, fontSize: 14, cursor: "pointer" },
