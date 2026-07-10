@@ -2,7 +2,7 @@
 
 A gamified Localization Quality Assurance training tool for EN→HR game localization. Players review translation segments under time pressure, identify errors, classify them by MQM category and severity, and track high scores on a local leaderboard.
 
-**Live demo:** [lqa-game.vercel.app](https://lqa-game.vercel.app)
+**Live demo:** [game.zirafinjezik.hr](https://game.zirafinjezik.hr)
 
 **Repository:** [github.com/zirafinjezik/lqa_game](https://github.com/zirafinjezik/lqa_game)
 
@@ -110,9 +110,9 @@ This tool is part of a set of three open-source LQA tools built around the full 
 
 | Tool | Purpose | Link |
 |---|---|---|
-| **MQM Error Scorer** | Log errors, score quality, export reports | [mqm-checker.vercel.app](https://mqm-checker.vercel.app) |
-| **LQA Checker** | Validate character limits and punctuation consistency | [lqa-checker-s7wi.vercel.app](https://lqa-checker-s7wi.vercel.app) |
-| **LQA Challenge** | Practice and train LQA skills | [lqa-game.vercel.app](https://lqa-game.vercel.app) |
+| **MQM Error Scorer** | Log errors, score quality, export reports | [mqm.zirafinjezik.hr](https://mqm.zirafinjezik.hr) |
+| **LQA Checker** | Validate character limits and punctuation consistency | [lqa.zirafinjezik.hr](https://lqa.zirafinjezik.hr) |
+| **LQA Challenge** | Practice and train LQA skills | [game.zirafinjezik.hr](https://game.zirafinjezik.hr) |
 
 ---
 
@@ -124,6 +124,10 @@ This tool is part of a set of three open-source LQA tools built around the full 
 - 💼 [LinkedIn](https://www.linkedin.com/in/natalija-maric-zirafinjezik)
 
 ---
+
+## Privacy
+
+The game runs entirely in your browser. The leaderboard is stored in your browser's localStorage only; no scores, names, or gameplay data are uploaded or transmitted. Hosting (Vercel) logs standard access data such as IP addresses.
 
 ## License
 
