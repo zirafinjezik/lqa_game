@@ -32,6 +32,10 @@ export default function HomeScreen({ onStart, leaderboard }) {
       <button style={{ ...css.btn, fontSize: 16, padding: "14px 48px", marginBottom: 32 }} onClick={onStart}>Start Game</button>
 
       {leaderboard.length > 0 && <Leaderboard entries={leaderboard} />}
+
+      <p style={{ marginTop: 24, fontSize: 11.5, color: C.textMute }}>
+        Runs entirely in your browser. The leaderboard lives in your browser's localStorage; nothing is uploaded.
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { summarize } from "./summary.js";
 
-export const SITE_URL = "https://lqa-game.vercel.app";
+export const SITE_URL = "https://game.zirafinjezik.hr";
 
 export function shareText(score, gradeLabel, history) {
   const { categories, clean } = summarize(history);
